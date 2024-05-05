@@ -8,10 +8,8 @@ echo "This script will submit system details to output file sysinfo.txt"
 echo
 
 #Check if output file exists and creates if not.
-#If file exists, prompts user to clear past file entries before 
-continuing.
-#Yes response is case-sensitive (Y). No response is case-insensitive (N or 
-n).
+#If file exists, prompts user to clear past file entries.
+#Yes response is case-sensitive (Y). No response is case-insensitive.
 file=~/sysinfo.txt
 if [ ! -e $file ]
 then
@@ -22,16 +20,16 @@ read -p "Clear past file entries? (Y/n)" Yn
 case $Yn in
 	[Y] ) echo > ~/sysinfo.txt; echo "Output file cleared. 
 Proceeding..."; break;;
-	[Nn] ) echo "Proceeding without clearing file...; break;;
+	[Nn] ) echo "Proceeding without clearing file..."; break;;
 	* ) echo "Invalid response";;
 esac
 done
 fi
 
 echo "Populating system details..."
-#Runs various commands to collect system details and outputs to file
+#collect system details and outputs to file
 {
-echo "################################"
+echo "--#########################--"
 echo "##-*-SYSTEM DETAILS-*-##"
 date
 echo
@@ -51,11 +49,11 @@ echo "---Free Memory---"; free -ht
 echo
 echo "---Filesystem Utilization---"; df -h
 echo
-echo "---Recent Syslog Errors---"; cat /var/log/syslog | grep -i "error" | 
-tail -n 5
+echo "---Recent Syslog Errors---"
+echo cat /var/log/syslog | grep -i "error" | tail -n 5
 echo
 } >> ~/sysinfo.txt
 
 echo "COMPLETE"
-echo -e "See ~/sysinfo.txt for output.\nUse of 'more' command recommended 
-for viewing in some environments. (MT)"
+echo -e "See ~/sysinfo.txt for output."
+echo " Use of 'more' is recommended for viewing in some environments."
