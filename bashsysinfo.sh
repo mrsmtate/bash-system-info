@@ -18,8 +18,7 @@ else
 while true; do
 read -p "Clear past file entries? (Y/n)" Yn
 case $Yn in
-	[Y] ) echo > ~/sysinfo.txt; echo "Output file cleared. 
-Proceeding..."; break;;
+	[Y] ) echo > ~/sysinfo.txt; echo "Output file cleared. Proceeding..."; break;;
 	[Nn] ) echo "Proceeding without clearing file..."; break;;
 	* ) echo "Invalid response";;
 esac
