@@ -54,5 +54,6 @@ echo
 } >> ~/sysinfo.txt
 
 echo "COMPLETE"
-echo -e "See ~/sysinfo.txt for output."
+echo "NOTE: If any operation not permitted, rerun with sudo."
+echo "See ~/sysinfo.txt for output."
 echo " Use of 'more' is recommended for viewing in some environments."
